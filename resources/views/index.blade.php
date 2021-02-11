@@ -24,12 +24,6 @@
                     <li class="nav-item">
                         <a class="nav-link fs-5 ml-4" href="/news">News</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link fs-5 ml-4" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fs-5 ml-4" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
                 </ul>
             </div>
         </div>
