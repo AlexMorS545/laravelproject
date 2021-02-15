@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::group([['prefix'=>'category']], function (){
+    Route::get('/', [PageController::class, 'index']);
+    Route::get('/category', [PageController::class, 'category']);
+
+    Route::get('news/sport', [PageController::class, 'sport'])->name('/category/sport');
+    Route::get('news/economic', [PageController::class, 'economic'])->name('/category/economic');
+    Route::get('news/world', [PageController::class, 'world'])->name('/category/world');
+
 });
 
-Route::get('/news', function () {
-    return view('news');
+Route::group([['prefix'=>'category']], function() {
+    Route::get('/news', [NewsController::class, 'showAllNews'])->name('/category/news');
+    Route::get('/news/{id}', [NewsController::class, 'showOneNews'])
+        ->where('id', '\d+')
+        ->name('/category/news/');
 });
+
