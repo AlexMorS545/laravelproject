@@ -6,29 +6,25 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    protected $categories = [
-        'sport',
-        'economic',
-        'world'
-    ];
-    public function index() {
-        return view('page/index');
-    }
 
-    public function category() {
-        return view('page/category', ['category'=>$this->categories]);
+    public function index() {
+        $this->title = 'Главные новости';
+        return view('page/index', ['title'=>$this->title]);
     }
 
     public function sport() {
-        return view('page/sport');
+        $this->title = 'Новости Спорта';
+        return view('page/sport', ['title'=>$this->title]);
     }
 
     public function economic() {
-        return view('page/economic');
+        $this->title = 'Новости Экономики';
+        return view('page/economic', ['title'=>$this->title]);
     }
 
     public function world() {
-        return view('page/world');
+        $this->title = 'Мировые Новости';
+        return view('page/world', ['title'=>$this->title]);
     }
 
 }
