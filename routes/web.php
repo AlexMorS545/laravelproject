@@ -17,12 +17,9 @@ use App\Http\Controllers\NewsController;
 
 Route::group([['prefix'=>'category']], function (){
     Route::get('/', [PageController::class, 'index']);
-    Route::get('/category', [PageController::class, 'category']);
 
     Route::get('news/sport', [PageController::class, 'sport'])->name('/category/sport');
     Route::get('news/economic', [PageController::class, 'economic'])->name('/category/economic');
-    Route::get('news/world', [PageController::class, 'world'])->name('/category/world');
-
 });
 
 Route::group([['prefix'=>'category']], function() {

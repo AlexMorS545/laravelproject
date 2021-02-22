@@ -13,19 +13,17 @@ class NewsController extends Controller
         'News-3',
         'News-4',
         'News-5',
-        'News-6',
-        'News-7',
-        'News-8',
-        'News-9',
-        'News-10'
+        'News-6'
     ];
 
     public function showAllNews() {
-        return view('news/show', ['listNews'=>$this->listNews]);
+        $this->title = 'Список Новостей';
+        return view('news/show', ['listNews'=>$this->listNews, 'title'=>$this->title]);
     }
 
     public function showOneNews(int $id) {
+        $this->title = 'Новость '.$this->listNews[$id];
         $news = $this->listNews[$id] ?? "No page";
-        return view('news/one_news', ['news' => $news]);
+        return view('news/one_news', ['news' => $news, 'title'=>$this->title]);
     }
 }
