@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Agency - Start Bootstrap Theme</title>
+    <title>Мировые новости</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -29,33 +28,26 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
                 <li class="nav-item"><a class="nav-link" href="../..">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('/category/sport')}}">Спорт</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('/category/economic')}}">Экономика</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('/category/sport') }}">Спорт</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('/category/economic') }}">Экономика</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('/category/news') }}">Мировые новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('/category/news') }}">Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('/admin') }}">Admin</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <!-- Masthead-->
-<header class="masthead" style="background-image: url('{{ asset("assets/img/header-bg.jpg") }}');">
+<header class="masthead" style="background-image: url('https://media4.s-nbcnews.com/j/newscms/2019_01/2705191/nbc-social-default_b6fa4fef0d31ca7e8bc7ff6d117ca9f4.nbcnews-fp-1200-630.png');">
     <div class="container">
         <div class="masthead-heading text-uppercase">{{ $title }}</div>
     </div>
 </header>
-
 <!-- Services-->
 <section class="page-section" id="services">
     <div class="container category">
        @yield('content')
     </div>
 </section>
-<!-- Portfolio Grid-->
-
-<!-- About-->
-
-<!-- Team-->
-
 <!-- Clients-->
 <div class="py-5">
     <div class="container">
