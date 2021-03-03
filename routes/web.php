@@ -34,8 +34,6 @@ Route::group(['prefix'=>'category'], function() {
         ->name('/category/news/');
 });
 
-
-
 Route::group(['prefix'=>'admin'], function() {
     Route::resource('/news', AdminNewsController::class);
 });
