@@ -14,7 +14,7 @@ class AdminNewsController extends Controller
      */
     public function index()
     {
-        dd(request()->ip());
+        return view('admin.index');
     }
 
     /**

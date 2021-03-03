@@ -2,28 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\TemplateNewsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 class NewsController extends Controller
 {
-    protected $listNews = [
-        'News-1',
-        'News-2',
-        'News-3',
-        'News-4',
-        'News-5',
-        'News-6'
-    ];
+    public function showAllNews(TemplateNewsService $service) {
 
-    public function showAllNews() {
         $this->title = 'Список Новостей';
-        return view('news/show', ['listNews'=>$this->listNews, 'title'=>$this->title]);
+
+        return view('news/show', ['listNews'=>$service->getNews(), 'title'=>$this->title]);
     }
 
-    public function showOneNews(int $id) {
-        $this->title = 'Новость '.$this->listNews[$id];
-        $news = $this->listNews[$id] ?? "No page";
+    public function showOneNews(TemplateNewsService $service, int $id) {
+
+        $allNews = $service->getNews();
+
+        $news = $allNews[$id] ?? "No page";
+
+        $this->title = 'Новость '.$news['created_at'];
+
         return view('news/one_news', ['news' => $news, 'title'=>$this->title]);
     }
 }
