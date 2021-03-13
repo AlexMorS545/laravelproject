@@ -55,7 +55,7 @@
             Interface
         </div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
+        <!-- Nav Item - Categories Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
@@ -65,14 +65,32 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Редактор категории</h6>
-                    <a class="collapse-item" href="buttons.html">Спорт</a>
-                    <a class="collapse-item" href="cards.html">Экономика</a>
-                    <a class="collapse-item" href="cards.html">Мировые новости</a>
+                    <a class="collapse-item" href="">Спорт</a>
+                    <a class="collapse-item" href="">Экономика</a>
+                    <a class="collapse-item" href="">Мировые новости</a>
                 </div>
             </div>
         </li>
 
-        <!-- Nav Item - Utilities Collapse Menu -->
+        <!-- Nav Item - SubCategories Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="far fa-newspaper"></i>
+                <span>Разделы</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Редактор разделов</h6>
+                    <a class="collapse-item" href="">Футбол</a>
+                    <a class="collapse-item" href="">Хоккей</a>
+                    <a class="collapse-item" href="">Баскетбол</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - News Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
@@ -83,9 +101,9 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Редактор новостей</h6>
-                    <a class="collapse-item" href="utilities-color.html">Спорт</a>
-                    <a class="collapse-item" href="utilities-border.html">Экономика</a>
-                    <a class="collapse-item" href="utilities-animation.html">Мировые новости</a>
+                    <a class="collapse-item" href="">Спорт</a>
+                    <a class="collapse-item" href="">Экономика</a>
+                    <a class="collapse-item" href="">Мировые новости</a>
                 </div>
             </div>
         </li>
@@ -123,13 +141,11 @@
 {{--            <!-- End of Topbar -->--}}
 
 {{--            <!-- Begin Page Content -->--}}
-            <div class="container-fluid">
-{{--                <!-- Page Heading -->--}}
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                </div>
-            </div>
+
 {{--            <!-- /.container-fluid -->--}}
+            <div id="content">
+                @yield('content')
+            </div>
         </div>
 {{--        <!-- End of Main Content -->--}}
 {{--        <!-- Footer -->--}}

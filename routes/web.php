@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Admin\IndexController;
 use \Admin\AdminNewsController;
+use \Admin\AdminCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,8 @@ Route::group(['prefix'=>'category'], function() {
         ->name('/category/news/');
 });
 
-Route::group(['prefix'=>'admin'], function() {
-    Route::resource('/news', AdminNewsController::class);
+Route::group(['prefix'=>'admin', 'as'=>'admin.'], function() {
+    Route::resource('news', AdminNewsController::class);
+    Route::resource('categories', AdminCategoryController::class);
 });
 

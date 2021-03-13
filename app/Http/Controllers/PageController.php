@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Category;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
 
-    public function index() {
+    public function index(Category $category) {
         $this->title = 'Главные новости';
-        return view('page/index', ['title'=>$this->title]);
+
+//        $obj = new Category();
+        $categories = Category::all();
+//        dd($categories);
+        return view('page/index', ['title' => $this->title, 'categories' => $categories]);
     }
 
     public function sport() {
