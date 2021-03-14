@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Model\Category;
 use Illuminate\Http\Request;
 
 class AdminNewsController extends Controller
@@ -14,7 +15,7 @@ class AdminNewsController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+
     }
 
     /**
@@ -41,10 +42,10 @@ class AdminNewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Category $category
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
     }
