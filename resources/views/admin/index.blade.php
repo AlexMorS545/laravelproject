@@ -35,7 +35,11 @@
                 <td class="text-center" colspan="4"><h4>Категорий пока нет</h4></td>
             </tr>
         @endforelse
+
         </tbody>
     </table>
-
+    
+    <div class="container">
+        <a href="{{ route('admin.news.create') }}" type="submit" class="btn btn-primary mt-lg-5">Добавить категорию</a>
+    </div>
 @endsection

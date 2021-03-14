@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Category extends Model
 {
@@ -12,6 +13,11 @@ class Category extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'name', 'image', 'created_at'
+        'name', 'description' 
     ];
+
+    public function subCategories(): BelongsToMany
+    {
+        return $this->belongsToMany(SubCategory::class, 'categories_has_sub_categories', 'category_id', 'sub_category_id');
+    }
 }

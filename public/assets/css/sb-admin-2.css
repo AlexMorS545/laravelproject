@@ -558,6 +558,13 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+.sub-category {
+  display: flex;
+  justify-content: space-between;
+}
+.sub-category-item {
+  flex: 0 1 30%;
+} 
 
 @media (min-width: 576px) {
   .container, .container-sm {

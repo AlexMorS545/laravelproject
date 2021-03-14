@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Category;
-use App\Model\SubCategory;
 use Illuminate\Http\Request;
+use Response;
 
 class AdminCategoryController extends Controller
 {
@@ -28,9 +28,9 @@ class AdminCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Category $category)
     {
-        //
+        return view('admin.categories.create', ['category' => $category]);
     }
 
     /**
@@ -39,18 +39,18 @@ class AdminCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Category $category)
     {
         $request->validate([
             'name' => 'required'
         ]);
 
-        $data = $request->only('name', 'image');
+        $data = $request->only('name', 'desctiption');
 
-        $create = Category::create($data);
+        $create = $category->create($data);
 
         if ($create) {
-            return redirect()->route('admin.categories')->with('success', 'Успешно');
+            return redirect()->route('admin.categories.index')->with('success', 'Успешно');
         }
         return back()->with('errors', 'Беда');
     }
@@ -63,7 +63,7 @@ class AdminCategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('admin.categories.sport', ['category' => $category]);
+        return view('admin.categories.show', ['category' => $category]);
     }
 
     /**

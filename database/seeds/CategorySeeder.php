@@ -21,18 +21,21 @@ class CategorySeeder extends Seeder
                 'name'       => 'Спорт',
                 'slug'       => 'world',
                 'image'      => 'sport.jpg',
+                'description'=> 'Последнии новости в мире спорта',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'name'       => 'Экономика',
                 'image'      => 'economic.jpeg',
+                'description'=> 'Все новости экономики',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'name'       => 'Мировые новости',
                 'image'      => 'world.jpg',
+                'description'=> 'Самые важные мировые новости',
                 'created_at' => now(),
                 'updated_at' => now()
             ]

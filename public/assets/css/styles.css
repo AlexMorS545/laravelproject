@@ -9959,6 +9959,10 @@ h3 {
     min-width: 992px !important;
   }
 
+  .sub-category {
+    display: flex;
+  }
+  
   .navbar {
     display: none;
   }
