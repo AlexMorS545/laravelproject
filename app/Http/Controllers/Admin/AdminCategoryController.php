@@ -45,11 +45,13 @@ class AdminCategoryController extends Controller
             'name' => 'required'
         ]);
 
+        
         $data = $request->only('name', 'desctiption');
 
-        $create = $category->create($data);
+        $save = $category->create($data);
 
-        if ($create) {
+        dd($category);
+        if ($save) {
             return redirect()->route('admin.categories.index')->with('success', 'Успешно');
         }
         return back()->with('errors', 'Беда');
@@ -87,7 +89,20 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        dd($request->all());
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        
+        $data = $request->only('name', 'desctiption');
+
+        $create = $category->create($data);
+
+        if ($create) {
+            
+            return redirect()->route('admin.categories.index')->with('success', 'Успешно');
+        }
+        return back()->with('errors', 'Беда');
     }
 
     /**
