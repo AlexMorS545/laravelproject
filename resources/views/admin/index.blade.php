@@ -10,6 +10,12 @@
             </div>
         </div>
 
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger">{{ $error }}</div>                
+            @endforeach
+        @endif
+
         <table class="table table-bordered border-primary container">
             <thead>
                 <tr>
@@ -23,7 +29,7 @@
             @forelse($categories as $category)
                 <tr>
                     <th scope="row">{{ $category->id }}</th>
-                    <td>{{ $category->name }}</td>
+                    <td>{{ $category->title }}</td>
                     <td>{{ $category->created_at }}</td>
                     <td>
                         <a href="{{ route('admin.categories.show', ['category' => $category]) }}">просмотр</a><br>

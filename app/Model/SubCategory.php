@@ -10,6 +10,6 @@ class SubCategory extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['title'];
 
 }

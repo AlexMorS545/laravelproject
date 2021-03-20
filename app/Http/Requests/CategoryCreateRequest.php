@@ -24,8 +24,8 @@ class CategoryCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'min:3', 'max:255'],
-            'description' => ['required', 'string', 'min:3', 'max:255']
+            'title' => ['required', 'string', 'min:3', 'max:255'],
+            'description' => ['sometimes']
         ];
     }
 }
