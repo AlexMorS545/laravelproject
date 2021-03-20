@@ -27,10 +27,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                <li class="nav-item"><a class="nav-link" href="../..">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('/') }}">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('/category/sport') }}">Спорт</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('/category/economic') }}">Экономика</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('/category/news') }}">Мировые новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('/login') }}">Регистрация</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('admin.categories.index') }}">Admin</a></li>
             </ul>
         </div>

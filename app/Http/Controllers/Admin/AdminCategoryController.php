@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Model\Category;
 use Illuminate\Http\Request;
 use Response;
@@ -30,6 +31,7 @@ class AdminCategoryController extends Controller
      */
     public function create(Category $category)
     {
+        
         return view('admin.categories.create', ['category' => $category]);
     }
 
@@ -45,12 +47,12 @@ class AdminCategoryController extends Controller
             'name' => 'required'
         ]);
 
-        
+
         $data = $request->only('name', 'desctiption');
 
         $save = $category->create($data);
 
-        dd($category);
+//        dd($category);
         if ($save) {
             return redirect()->route('admin.categories.index')->with('success', 'Успешно');
         }
@@ -76,7 +78,6 @@ class AdminCategoryController extends Controller
      */
     public function edit(Category $category)
     {
-
         return view('admin.categories.edit', ['category' => $category]);
     }
 
@@ -87,22 +88,18 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryUpdateRequest $request)
     {
-        $request->validate([
-            'name' => 'required'
-        ]);
-
+       dd($request->all());
+        // $data = $request->only('name', 'desctiption');
         
-        $data = $request->only('name', 'desctiption');
+        // $create = Category::create($data);
+        
+        // if ($create) {
 
-        $create = $category->create($data);
-
-        if ($create) {
-            
-            return redirect()->route('admin.categories.index')->with('success', 'Успешно');
-        }
-        return back()->with('errors', 'Беда');
+        //     return redirect()->route('admin.categories.index')->with('success', 'Успешно');
+        // }
+        // return back()->with('errors', 'Беда');
     }
 
     /**

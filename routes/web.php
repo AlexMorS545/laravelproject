@@ -21,7 +21,12 @@ use \Admin\AdminCategoryController;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/', [PageController::class, 'index']);
+
+Route::group([], function() {
+    Route::get('/', [PageController::class, 'index'])->name('/');
+    Route::get('/login', [PageController::class, 'login'])->name('/login');
+});
+
 
 Route::group(['prefix'=>'category'], function (){
     Route::get('news/sport', [PageController::class, 'sport'])->name('/category/sport');
