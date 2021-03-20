@@ -15,11 +15,7 @@ class CreateSubCategoriesHasNewsTable extends Migration
     {
         Schema::create('sub_categories_has_news', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('sub_category_id');
-            $table->unsignedBigInteger('news_id')->nullable();
-
-            $table->foreign('sub_category_id')->on('sub_categories')->references('id')->cascadeOnDelete();
-            $table->foreign('news_id')->on('news')->references('id')->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 

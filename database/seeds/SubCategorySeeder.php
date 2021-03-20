@@ -19,27 +19,27 @@ class SubCategorySeeder extends Seeder
     {
         $data = [
             [
-                'name'       => 'Футбол',
+                'title'       => 'Футбол',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'name'       => 'Хоккей',
+                'title'       => 'Хоккей',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'name'       => 'Баскетбол',
+                'title'       => 'Баскетбол',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'name'       => 'Курс валют',
+                'title'       => 'Курс валют',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'name'       => 'Акции',
+                'title'       => 'Акции',
                 'created_at' => now(),
                 'updated_at' => now()
             ]

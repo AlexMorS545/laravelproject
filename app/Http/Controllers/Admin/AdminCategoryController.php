@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryCreateRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Model\Category;
 use Illuminate\Http\Request;
 use Response;
 
 class AdminCategoryController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +26,7 @@ class AdminCategoryController extends Controller
         return view('admin.index', ['title' => $this->title, 'categories' => $categories]);
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -30,33 +34,31 @@ class AdminCategoryController extends Controller
      */
     public function create(Category $category)
     {
+        
         return view('admin.categories.create', ['category' => $category]);
     }
 
+    
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Category $category)
+    public function store(CategoryCreateRequest $request, Category $category)
     {
-        $request->validate([
-            'name' => 'required'
-        ]);
-
+  
+        $data = $request->validated();
         
-        $data = $request->only('name', 'desctiption');
-
-        $save = $category->create($data);
-
-        dd($category);
-        if ($save) {
+        $create = Category::create($data);
+        
+        if ($create) {
             return redirect()->route('admin.categories.index')->with('success', 'Успешно');
         }
         return back()->with('errors', 'Беда');
     }
 
+    
     /**
      * Display the specified resource.
      *
@@ -68,6 +70,7 @@ class AdminCategoryController extends Controller
         return view('admin.categories.show', ['category' => $category]);
     }
 
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -76,35 +79,29 @@ class AdminCategoryController extends Controller
      */
     public function edit(Category $category)
     {
-
         return view('admin.categories.edit', ['category' => $category]);
     }
 
+    
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CategoryUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryUpdateRequest $request, Category $category)
     {
-        $request->validate([
-            'name' => 'required'
-        ]);
-
-        
-        $data = $request->only('name', 'desctiption');
-
-        $create = $category->create($data);
-
-        if ($create) {
-            
+    //    dd($request->all());
+        $data = $request->validated();
+        $save = $category->fill($data)->save();
+        if ($save) {
             return redirect()->route('admin.categories.index')->with('success', 'Успешно');
         }
         return back()->with('errors', 'Беда');
     }
 
+    
     /**
      * Remove the specified resource from storage.
      *

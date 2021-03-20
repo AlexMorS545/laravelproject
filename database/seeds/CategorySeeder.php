@@ -18,22 +18,21 @@ class CategorySeeder extends Seeder
     {
         $data = [
             [
-                'name'       => 'Спорт',
-                'slug'       => 'world',
+                'title'       => 'Спорт',
                 'image'      => 'sport.jpg',
                 'description'=> 'Последнии новости в мире спорта',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'name'       => 'Экономика',
+                'title'       => 'Экономика',
                 'image'      => 'economic.jpeg',
                 'description'=> 'Все новости экономики',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'name'       => 'Мировые новости',
+                'title'       => 'Мировые новости',
                 'image'      => 'world.jpg',
                 'description'=> 'Самые важные мировые новости',
                 'created_at' => now(),
