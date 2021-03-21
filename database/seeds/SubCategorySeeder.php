@@ -20,28 +20,38 @@ class SubCategorySeeder extends Seeder
         $data = [
             [
                 'title'       => 'Футбол',
-                'created_at' => now(),
-                'updated_at' => now()
+                'description' => 'Всё про Футбол',
+                'image'       => 'football.jpg',
+                'created_at'  => now(),
+                'updated_at'  => now()
             ],
             [
                 'title'       => 'Хоккей',
-                'created_at' => now(),
-                'updated_at' => now()
+                'description' => 'Всё про Хоккей',
+                'image'       => 'hockey.jpg',
+                'created_at'  => now(),
+                'updated_at'  => now()
             ],
             [
                 'title'       => 'Баскетбол',
-                'created_at' => now(),
-                'updated_at' => now()
+                'description' => 'Всё про Баскетбол',
+                'image'       => 'basketball.jpg',
+                'created_at'  => now(),
+                'updated_at'  => now()
             ],
             [
                 'title'       => 'Курс валют',
-                'created_at' => now(),
-                'updated_at' => now()
+                'description' => 'Самые свежие курсы валют',
+                'image'       => 'currency.jpg',
+                'created_at'  => now(),
+                'updated_at'  => now()
             ],
             [
                 'title'       => 'Акции',
-                'created_at' => now(),
-                'updated_at' => now()
+                'description' => 'Всё о мировых акциях',
+                'image'       => 'stocks.jpg',
+                'created_at'  => now(),
+                'updated_at'  => now()
             ]
         ];
 
