@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Admin\IndexController;
 use \Admin\AdminNewsController;
 use \Admin\AdminCategoryController;
+use \Account\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,12 @@ use \Admin\AdminCategoryController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+   return view('welcome');
+});
 
 Route::group([], function() {
-    Route::get('/', [PageController::class, 'index'])->name('/');
+    Route::get('/index', [PageController::class, 'index'])->name('/index');
     Route::get('/login', [PageController::class, 'login'])->name('/login');
 });
 
@@ -43,5 +44,23 @@ Route::group(['prefix'=>'category'], function() {
 Route::group(['prefix'=>'admin', 'as'=>'admin.'], function() {
     Route::resource('news', AdminNewsController::class);
     Route::resource('categories', AdminCategoryController::class);
+});
+
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware'=>'auth'], function() {
+    
+    Route::get('/account', AccountController::class)->name('/account');
+    
+    Route::group(['middleware' => 'admin'], function() {
+        
+        Route::group(['prefix'=>'admin', 'as'=>'admin.'], function() {
+            Route::resource('news', AdminNewsController::class);
+            Route::resource('categories', AdminCategoryController::class);
+        });
+    
+    });
 });
 
