@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\ParserService;
+use App\Services\TemplateNewsService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,7 +17,16 @@ class AppServiceProvider extends ServiceProvider
     {
         if ($this->app->isLocal()) {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+            
         }
+
+        $this->app->bind(TemplateNewsService::class, function() {
+            return new TemplateNewsService();
+        });
+
+        $this->app->bind(ParserService::class, function() {
+            return new ParserService();
+        });     
     }
 
     /**

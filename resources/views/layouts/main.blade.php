@@ -27,10 +27,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ route('/index') }}">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('/') }}">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('/category/sport') }}">Спорт</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('/category/economic') }}">Экономика</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('/category/news') }}">Мировые новости</a></li>
+                @if (Route::has('login'))
+                    @auth
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/account') }}">Личный кабинет</a></li>
+                    @else
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Вход</a></li>
+
+                        @if (Route::has('register'))
+                            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Регистрация</a></li>
+                        @endif
+                    @endauth
+                 @endif
                 <!-- <li class="nav-item"><a class="nav-link" href="">Вход</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Регистрация</a></li> -->
                 <li class="nav-item"><a class="nav-link" href="{{ route('admin.categories.index') }}">Admin</a></li>
